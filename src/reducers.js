@@ -4,26 +4,25 @@ const reducer = (state, action) => {
     switch(action.type){
         case 'add':
             const newUser={
-                id:uuidv4(),
-                name:action.name
+                id: uuidv4(),
+                name: action.name,
             };
-            return {
+            return{
                 ...state,
-                users:[...state,users,newUser],
+                users: [...state.users,newUser],
                 balance:state.balance+10,
-            }
+            };
         case "fuel":
-            if(action.balance>50){
+            if(action.balance>=50){
                 return{
-                    ...state,
-                    balance:state.balance-50,
+                ...state,
+                balance: state.balance-50,
                 }
-            else{
+            }else{
                 return state;
             }
-            }
-        default:
-            return state
+        default: 
+        return state;
     }
 };
 
