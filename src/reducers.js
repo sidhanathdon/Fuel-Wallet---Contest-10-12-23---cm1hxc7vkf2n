@@ -8,7 +8,7 @@ const reducer = (state, action) => {
                 name:action.name
             };
             return [...state,newUser];
-        case "fuel":
+        case 'fuel':
             if(action.balance>50){
                 action.setBalance(action.balance-50)
             }
